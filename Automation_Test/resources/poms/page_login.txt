@@ -1,0 +1,22 @@
+*** Settings ***
+Resource    basePage.txt
+
+*** Variables ***
+${loc_p_loginMessage_loginPage}              xpath=//*[contains(text(), "Congratulations! You must have the proper credentials.")]
+
+*** Keywords ***
+Input Username And Password On Alert On Login Page
+    [Documentation]    Go to assigned URL and login with valid credentials.
+    Go To    https://admin:admin@ss-testing-automated-exercise.herokuapp.com/basic_auth
+
+Input Wrong Username And Password On Alert On Login Page
+    [Documentation]    Go to assigned URL and login with invalid credentials.
+    Go To    https://admin1:admin1@ss-testing-automated-exercise.herokuapp.com/basic_auth
+
+Verify Login Successfully On Page
+    [Documentation]    Checks if login was successful.
+    Wait Until Element Is Visible    ${loc_p_loginMessage_loginPage}
+
+Verify Login Unsuccessfully On Page
+    [Documentation]    Checks if login was unsuccessful.
+    Wait Until Element Is Not Visible    ${loc_p_loginMessage_loginPage}

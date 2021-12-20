@@ -1,0 +1,2 @@
+*** Settings ***
+Documentation     Keywords that go directly to a particular URL go in this file.

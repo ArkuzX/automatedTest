@@ -1,0 +1,14 @@
+*** Settings ***
+Library  SeleniumLibrary
+
+*** Variables ***
+${BROWSER}        chrome
+${REMOTE}         ${EMPTY}
+${ENVIRONMENT}    ${EMPTY}
+${VERSION}        ${EMPTY}
+${SERVER_URL}     ${EMPTY}
+${PLATFORMNAME}   windows
+${WAIT}           15s
+
+*** Keywords ***
+

@@ -1,0 +1,18 @@
+*** Settings ***
+Library           String
+Resource          setups.txt
+Resource          poms/page_elements.txt
+Resource          poms/page_login.txt
+Resource          poms/basePage.txt
+
+*** Keywords ***
+Basic Selenium Test Teardown
+    [Documentation]    - Logs last location
+    ...    - Captures screenshot if test failed
+    ...    - Updates TestRail result for the test case
+    ...    - Closes all browser windows
+    Log Location
+    Log Source
+    ${randomString} =    Generate Random String    3
+    Run Keyword If    "${TEST STATUS}" == "FAIL"    Capture Page Screenshot    onFailScreenshot_${randomString}.png
+    Close All Browsers

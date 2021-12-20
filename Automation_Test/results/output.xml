@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.0.1 (Python 3.6.8 on win32)" generated="20211220 10:30:35.890">
+<suite id="s1" name="basicAuth" source="C:\Users\Fespada\Desktop\whatif\Automation_Test\desktop_tests\basicAuth.robot">
+<test id="s1-t1" name="add_remove_elements">
+<kw name="BasicAuth Selenium Test Setup" library="setups" type="setup">
+<doc>- Opens browser</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>https://ss-testing-automated-exercise.herokuapp.com/basic_auth</arg>
+<arg>chrome</arg>
+</arguments>
+<msg timestamp="20211220 10:30:36.089" level="INFO">Opening browser 'chrome' to base url 'https://ss-testing-automated-exercise.herokuapp.com/basic_auth'.</msg>
+<status status="PASS" starttime="20211220 10:30:36.089" endtime="20211220 10:30:44.597"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20211220 10:30:44.597" endtime="20211220 10:30:48.771"></status>
+</kw>
+<status status="PASS" starttime="20211220 10:30:36.089" endtime="20211220 10:30:48.771"></status>
+</kw>
+<kw name="Input Username And Password On Alert On Login Page" library="page_login">
+<doc>Go to assigned URL and login with valid credentials.</doc>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>https://admin:admin@ss-testing-automated-exercise.herokuapp.com/basic_auth</arg>
+</arguments>
+<msg timestamp="20211220 10:30:48.772" level="INFO">Opening url 'https://admin:admin@ss-testing-automated-exercise.herokuapp.com/basic_auth'</msg>
+<status status="PASS" starttime="20211220 10:30:48.772" endtime="20211220 10:30:50.191"></status>
+</kw>
+<status status="PASS" starttime="20211220 10:30:48.772" endtime="20211220 10:30:50.192"></status>
+</kw>
+<kw name="Verify Login Successfully On Page" library="page_login">
+<doc>Checks if login was successful.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is visible.</doc>
+<arguments>
+<arg>${loc_p_loginMessage_loginPage}</arg>
+</arguments>
+<status status="PASS" starttime="20211220 10:30:50.193" endtime="20211220 10:30:50.214"></status>
+</kw>
+<status status="PASS" starttime="20211220 10:30:50.193" endtime="20211220 10:30:50.214"></status>
+</kw>
+<kw name="Input Wrong Username And Password On Alert On Login Page" library="page_login">
+<doc>Go to assigned URL and login with invalid credentials.</doc>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>https://admin1:admin1@ss-testing-automated-exercise.herokuapp.com/basic_auth</arg>
+</arguments>
+<msg timestamp="20211220 10:30:50.216" level="INFO">Opening url 'https://admin1:admin1@ss-testing-automated-exercise.herokuapp.com/basic_auth'</msg>
+<status status="PASS" starttime="20211220 10:30:50.215" endtime="20211220 10:30:50.631"></status>
+</kw>
+<status status="PASS" starttime="20211220 10:30:50.215" endtime="20211220 10:30:50.631"></status>
+</kw>
+<kw name="Verify Login Unsuccessfully On Page" library="page_login">
+<doc>Checks if login was unsuccessful.</doc>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is not visible.</doc>
+<arguments>
+<arg>${loc_p_loginMessage_loginPage}</arg>
+</arguments>
+<status status="PASS" starttime="20211220 10:30:50.632" endtime="20211220 10:30:50.644"></status>
+</kw>
+<status status="PASS" starttime="20211220 10:30:50.631" endtime="20211220 10:30:50.644"></status>
+</kw>
+<kw name="Basic Selenium Test Teardown" library="main" type="teardown">
+<doc>- Logs last location</doc>
+<kw name="Log Location" library="SeleniumLibrary">
+<doc>Logs and returns the current URL.</doc>
+<msg timestamp="20211220 10:30:50.649" level="INFO">https://admin1:admin1@ss-testing-automated-exercise.herokuapp.com/basic_auth</msg>
+<status status="PASS" starttime="20211220 10:30:50.645" endtime="20211220 10:30:50.649"></status>
+</kw>
+<kw name="Log Source" library="SeleniumLibrary">
+<doc>Logs and returns the HTML source of the current page or frame.</doc>
+<msg timestamp="20211220 10:30:50.655" level="INFO">&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;&lt;/html&gt;</msg>
+<status status="PASS" starttime="20211220 10:30:50.650" endtime="20211220 10:30:50.655"></status>
+</kw>
+<kw name="Generate Random String" library="String">
+<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
+<arguments>
+<arg>3</arg>
+</arguments>
+<assign>
+<var>${randomString}</var>
+</assign>
+<msg timestamp="20211220 10:30:50.655" level="INFO">${randomString} = vKK</msg>
+<status status="PASS" starttime="20211220 10:30:50.655" endtime="20211220 10:30:50.655"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>"${TEST STATUS}" == "FAIL"</arg>
+<arg>Capture Page Screenshot</arg>
+<arg>onFailScreenshot_${randomString}.png</arg>
+</arguments>
+<status status="PASS" starttime="20211220 10:30:50.655" endtime="20211220 10:30:50.662"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20211220 10:30:50.662" endtime="20211220 10:30:54.229"></status>
+</kw>
+<status status="PASS" starttime="20211220 10:30:50.645" endtime="20211220 10:30:54.229"></status>
+</kw>
+<doc>- Login with not valid credentials (user: admin1, password: admin1)
+- Validate that the authentication was unsuccessful.
+- Login with valid credentials (user: admin, password: admin)
+- Validate that the authentication was successful.</doc>
+<status status="PASS" starttime="20211220 10:30:36.089" endtime="20211220 10:30:54.229" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20211220 10:30:35.890" endtime="20211220 10:30:54.229"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="basicAuth">basicAuth</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

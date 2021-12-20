@@ -1,0 +1,15 @@
+*** Settings ***
+Resource    main.txt
+
+*** Keywords ***
+Basic Selenium Test Setup
+    [Documentation]    - Opens browser
+    ...    - Maximizes browser window
+    open browser    https://ss-testing-automated-exercise.herokuapp.com/add_remove_elements/    chrome
+    Maximize Browser Window
+
+BasicAuth Selenium Test Setup
+    [Documentation]    - Opens browser
+    ...    - Maximizes browser window
+    open browser    https://ss-testing-automated-exercise.herokuapp.com/basic_auth    chrome
+    Maximize Browser Window

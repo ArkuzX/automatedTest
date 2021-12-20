@@ -1,0 +1,6 @@
+*** Settings ***
+Documentation     Keywords that navigate from one page to another should go in this file.
+
+*** Variables ***
+
+*** Keywords ***

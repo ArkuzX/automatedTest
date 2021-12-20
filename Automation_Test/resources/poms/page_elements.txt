@@ -1,0 +1,53 @@
+*** Settings ***
+Resource    basePage.txt
+
+*** Variables ***
+${loc_button_addElement}              css=div.example button
+${loc_button_delete}                  css=div#elements button
+
+*** Keywords ***
+Verify Add Element Button Is On Page
+    [Documentation]    Checks that the Add Element button is visible.
+    ...
+    ...    *Arguments:*
+    ...    - ${WAIT} - Wait until element is loaded
+    Wait Until Element Is Visible    ${loc_button_addElement}    ${WAIT}    Add Element button not visible
+
+Click Add Element On Page
+    [Documentation]    Clicks the Add Element button.
+    ...
+    ...    *Arguments:*
+    ...    - ${WAIT} - Wait until element is loaded
+    Verify Add Element Button Is On Page
+    Click Element    ${loc_button_addElement}
+
+Verify Element Was Added On Page
+    [Documentation]     Checks that the new Delete Button was added.
+    ...
+    ...    *Arguments:*
+    ...    - ${WAIT} - Wait until element is loaded
+    Wait Until Element Is Visible    ${loc_button_delete}    ${WAIT}    Element delete was not added.
+
+Create New Element And Verify New Element On Page
+    [Documentation]     Creates and Verifies a new Delete Button.
+    Click Add Element On Page
+    Verify Element Was Added On Page
+
+Verify Delete Element Button Is On Page
+    [Documentation]    Checks that the Delete Element button is visible.
+    ...
+    ...    *Arguments:*
+    ...    - ${WAIT} - Wait until element is loaded
+    Wait Until Element Is Visible    ${loc_button_delete}    ${WAIT}    Delete Element button not visible
+
+Click Delete Element On Page
+    [Documentation]    Clicks the Delete Element button.
+    Verify Delete Element Button Is On Page
+    Click Element    ${loc_button_delete}
+
+Verify Delete Element Button Is Not On Page
+    [Documentation]    Checks that the Delete Element button is not visible.
+    ...
+    ...    *Arguments:*
+    ...    - ${WAIT} - Wait until element is loaded
+    Wait Until Element Is Not Visible    ${loc_button_delete}    ${WAIT}    Delete Element button is visible
